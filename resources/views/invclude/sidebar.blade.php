@@ -38,9 +38,9 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Components:</h6>
                 <a class="collapse-item" href="{{ route('genre.index') }}">Genre Anime</a>
-                <a class="collapse-item" href="cards.html">Anime</a>
-                <a class="collapse-item" href="cards.html">Account User</a>
-                <a class="collapse-item" href="cards.html">Account Admin</a>
+                <a class="collapse-item" href="{{ route('anime.index') }}">Anime</a>
+                <a class="collapse-item" href="{{ route('gallery.index') }}">Gallery Anime</a>
+                {{-- <a class="collapse-item" href="cards.html">Account Admin</a> --}}
             </div>
         </div>
     </li>
@@ -49,7 +49,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Addons
+        Data Forum
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->

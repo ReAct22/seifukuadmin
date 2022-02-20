@@ -5,10 +5,10 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-sm-10">
-                    <h5 class="card-title">Data Anime</h5>
+                    <h5 class="card-title">Data Gallery</h5>
                 </div>
                 <div class="col-sm-2">
-                    <a href="{{ route('anime.create') }}" class="btn btn-primary">ADD</a>
+                    <a href="{{ route('gallery.create') }}" class="btn btn-primary">ADD</a>
                 </div>
             </div>
         </div>
@@ -18,8 +18,7 @@
                     <tr>
                         <th>No</th>
                         <th>Title</th>
-                        <th>Genre</th>
-                        <th>Studio</th>
+                        <th>Url</th>
                         <th>Cover</th>
                         <th>Option</th>
                     </tr>
@@ -29,7 +28,6 @@
                         <td>1</td>
                         <td>Shingeki No Kyojin</td>
                         <td>Action, Adventure, Shounen</td>
-                        <td>Mappa</td>
                         <td>...</td>
                         <td>
                             <a href="" class="btn btn-warning"><i class="far fa-edit"></i></a>

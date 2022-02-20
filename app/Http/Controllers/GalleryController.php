@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AnimeController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class AnimeController extends Controller
      */
     public function index()
     {
-        return view('pages.anime.index');
+        return view('pages.gallerys.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class AnimeController extends Controller
      */
     public function create()
     {
-        return view('pages.anime.add');
+        return view('pages.gallerys.add');
     }
 
     /**
