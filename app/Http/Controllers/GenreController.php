@@ -14,7 +14,10 @@ class GenreController extends Controller
      */
     public function index()
     {
-        return view('pages.genre.index');
+        $genres = Genre::all();
+        return view('pages.genre.index',[
+            'genres' => $genres
+        ]);
     }
 
     /**
@@ -35,7 +38,19 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'genre' => 'required'
+        ]);
+
+        $data = array(
+            'kode' => strtoupper($request->genre),
+            'genre' => $request->genre
+        );
+        Genre::create($data);
+        return redirect()->route('genre.index')->with(['success' => 'Data Berhasil di simpan']);
+
+
+
     }
 
     /**
@@ -55,31 +70,39 @@ class GenreController extends Controller
      * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function edit(Genre $genre)
+    public function edit($id)
     {
-        //
+        $genre = Genre::findOrfail($id);
+
+        return view('pages.genre.edit', [
+            'items' => $genre
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Genre  $genre
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Genre $genre)
+
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'genre' => 'required'
+        ]);
+
+        $data = array(
+            'kode' => strtoupper($request->genre),
+            'genre' => $request->genre
+        );
+
+        $items = Genre::findOrfail($id);
+        $items->update($data);
+        return redirect()->route('genre.index')->with(['success' => 'Data Berhasil di perbarui']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Genre  $genre
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Genre $genre)
+
+    public function destroy($id)
     {
-        //
+        $items = Genre::findOrfail($id);
+        $items->delete();
+
+        return redirect()->route('genre.index')->with(['success' => 'Data Berhasil di Hapus']);
+
     }
 }

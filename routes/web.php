@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardContoller;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\GalleryController;
+use App\Events\SendGlobalNotification;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,8 @@ Route::resource('genre', GenreController::class);
 Route::resource('anime', AnimeController::class);
 // Gallery
 Route::resource('gallery', GalleryController::class);
+
+Route::get('send-notif/{name}', function ($name) {
+    event(new App\Events\SendGlobalNotification($name));
+    return "Event has been sent";
+});

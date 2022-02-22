@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('anime', [AnimeapiController::class, 'getanime']);
 Route::get('genre', [GenreapiController::class, 'getgenre']);
+Route::get('genre/{id}', [GenreapiController::class, 'genreid']);

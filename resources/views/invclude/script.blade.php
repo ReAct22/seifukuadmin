@@ -20,3 +20,5 @@
    <script src="{{ url('admin') }}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
    <!-- Page level custom scripts -->
    <script src="{{ url('admin') }}/js/demo/datatables-demo.js"></script>
+
+   @stack('time-script')
