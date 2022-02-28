@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Genre;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class AnimeController extends Controller
 {
@@ -23,7 +25,10 @@ class AnimeController extends Controller
      */
     public function create()
     {
-        return view('pages.anime.add');
+        $items = Genre::all();
+        return view('pages.anime.add', [
+            'items' => $items
+        ]);
     }
 
     /**
@@ -34,7 +39,20 @@ class AnimeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'sinopsis' => 'required',
+            'total' => 'required',
+            'studio' => 'required',
+            'musim' => 'required',
+            'type' => 'required',
+            'tanggal' => 'required',
+            'durasi' => 'required',
+            'genre' => 'required',
+            'score' => 'required',
+            'ranting' => 'required',
+            'cover' => 'required|mimes:jpg,png'
+        ]);
     }
 
     /**
